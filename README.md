@@ -61,10 +61,9 @@ what changed; "Update" downloads it, checks that it is signed by macRDP's develo
 by Apple, replaces the app and restarts the service (a session in progress drops for a few
 seconds). The permissions carry over.
 
-By hand: the background service runs from inside macRDP.app, so Finder refuses to replace it
-while it runs ("macRDP is in use"). First turn off "Run at login" in macRDP and quit it (or run
-`launchctl bootout gui/$(id -u)/dev.keelos.macrdp`), then drag the new macRDP over the old one and
-open it.
+By hand: quit macRDP's window first (⌘Q; Finder does not replace an app whose window is open:
+"macRDP is in use"), drag the new macRDP over the old one, then open it. The background service
+may keep running.
 
 ### Uninstall
 
@@ -131,9 +130,8 @@ mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`
 核对它是 macRDP 开发者签名并经苹果公证的，替换 app 并重启服务（正在连着的会话会断开几秒），授权
 不用重新给。
 
-手动覆盖：后台服务是从 macRDP.app 里面运行的，服务开着时 Finder 会拒绝覆盖（「macRDP 正在使用」）。
-先在 macRDP 里关掉「登录时自动运行」并退出（或者在终端跑
-`launchctl bootout gui/$(id -u)/dev.keelos.macrdp`），再把新的 macRDP 拖进去覆盖，然后打开它。
+手动覆盖：先退出 macRDP 的窗口（⌘Q；窗口开着时 Finder 不让覆盖，会说「macRDP 正在使用」），
+再把新的 macRDP 拖进去覆盖，然后打开它。后台服务不用停。
 
 ### 卸载
 
