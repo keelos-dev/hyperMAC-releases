@@ -17,7 +17,8 @@ later). Intel Macs are not supported.
    and open it.
 2. Drag **macRDP** into **Applications**.
 3. Open macRDP from Applications and follow the dialogs:
-   - choose a user name and password for RDP clients (this need not be your Mac account);
+   - type your Mac's login password once: clients log in with your Mac account (user name and
+     login password), there is no separate password to remember;
    - allow **Screen Recording** and **Accessibility** in System Settings → Privacy & Security.
      Accessibility is not switched on for you: turn on macRDP's switch in that list yourself.
      macOS 26 asks once more, on the first connection, whether macRDP may capture the screen and
@@ -29,12 +30,12 @@ later). Intel Macs are not supported.
 ### Which client
 
 **kRDPclient is the recommended client**: https://github.com/keelos-dev/kRDPclient-releases
-(Windows). In kRDPclient choose "Add keelOS host", enter the Mac's address and the macRDP
-password (kRDPclient trades it for a token and does not keep the password), or a token made in
-the macRDP app. It gets the picture as hardware-encoded H.264, plus sound and the clipboard.
+(Windows). In kRDPclient choose "Add keelOS host", enter the Mac's address and your Mac's
+login password (kRDPclient trades it for a token and does not keep the password), or a token made
+in the macRDP app. It gets the picture as hardware-encoded H.264, plus sound and the clipboard.
 
 mstsc (Remote Desktop Connection) and other standard RDP clients can connect too
-(`mac-address:3389`, the user name and password you set), **but they have no H.264 channel**:
+(`mac-address:3389`, your Mac user name and login password), **but they have no H.264 channel**:
 the picture goes as RemoteFX / bitmaps and is noticeably less smooth. If mstsc feels slow, try
 kRDPclient before judging macRDP.
 
@@ -46,8 +47,11 @@ kRDPclient before judging macRDP.
   has no screen to capture.
 - Clipboard: text only (no files or images).
 - The mouse pointer is part of the picture; there is no client-side pointer yet.
-- The RDP password is stored as plain text in a file only your account can read
-  (`~/Library/Application Support/macRDP/credentials.json`). Do not reuse an important password.
+- The login is your Mac account, so anyone who knows your Mac password can connect: use a good
+  one, and keep port 3389/443 inside your network. macRDP does not store the password; for mstsc
+  it keeps the password's NT hash in a file only your account can read. After changing the Mac
+  password, the old one stops working at once; mstsc needs one login with the new one from
+  kRDPclient (or open macRDP and type it), kRDPclient works right away.
 - No automatic updates: download the new dmg from Releases, drag it over the old app, open it
   once.
 
@@ -85,7 +89,7 @@ macRDP 是一个免费的 Mac 用 RDP 服务端：从别的电脑连上来，看
 1. 从 [Releases](https://github.com/keelos-dev/macRDP-releases/releases) 下载最新的 `.dmg` 并打开。
 2. 把 **macRDP** 拖进「**应用程序**」。
 3. 从「应用程序」打开 macRDP，按对话框走：
-   - 设一个给 RDP 客户端用的用户名和密码（不必和 Mac 的系统账号一样）；
+   - 输一次这台 Mac 的登录密码：客户端用的就是你的 Mac 账号（用户名 + 登录密码），不用另记密码；
    - 在「系统设置 → 隐私与安全性」里允许「**屏幕录制**」和「**辅助功能**」。
      「辅助功能」系统不会替你打开：要在列表里自己把 macRDP 的开关打开。
      macOS 26 第一次有人连上时还会再问一次「要采集屏幕和音频」，选允许；
@@ -96,11 +100,11 @@ macRDP 是一个免费的 Mac 用 RDP 服务端：从别的电脑连上来，看
 ### 用什么客户端
 
 **推荐 kRDPclient**：https://github.com/keelos-dev/kRDPclient-releases （Windows）。
-在 kRDPclient 里「添加 keelOS 主机」，填 Mac 的地址和 macRDP 密码（kRDPclient 拿它换一个
-token，不保存密码），也可以填 macRDP app 里生成的 token。画面走硬件
+在 kRDPclient 里「添加 keelOS 主机」，填 Mac 的地址和 Mac 的登录密码（kRDPclient 拿它换
+一个 token，不保存密码），也可以填 macRDP app 里生成的 token。画面走硬件
 编码的 H.264，声音、剪贴板也都有。
 
-mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`，用你设的用户名和密码），
+mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`，用 Mac 的用户名和登录密码），
 **但它们没有 H.264 通道**，画面走 RemoteFX / 位图，流畅度差一截。用 mstsc 觉得卡的话，
 请先换 kRDPclient 试试。
 
@@ -111,8 +115,9 @@ mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`
 - Mac 要接着显示器，或者插一个假负载（HDMI 欺骗器）；什么都不接时 macOS 没有屏幕可抓。
 - 剪贴板只有文本（不支持文件、图片）。
 - 鼠标指针是画在画面里的，还没有客户端本地光标。
-- RDP 密码以明文保存在只有你的账号能读的文件里
-  （`~/Library/Application Support/macRDP/credentials.json`），别用重要的密码。
+- 登录用的就是你的 Mac 账号，知道 Mac 密码的人就能连：密码要设好，3389/443 端口别暴露到公网。
+  macRDP 不保存密码本身，只为 mstsc 存一个密码的 NT 哈希（只有你的账号能读）。改了 Mac 密码后旧密码
+  立刻失效；kRDPclient 马上能用新密码，mstsc 要先用新密码从 kRDPclient 登录一次（或者打开 macRDP 输一次）。
 - 不自动更新：到 Releases 下载新的 dmg，拖进去覆盖旧的，再打开一次即可。
 
 ### 更新
