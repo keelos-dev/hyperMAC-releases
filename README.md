@@ -35,6 +35,7 @@ From each product's public description (2026-11); not all of them tested side by
 | | macRDP | Apple Screen Sharing | NoMachine | Chrome Remote Desktop | RustDesk | Parsec |
 |---|---|---|---|---|---|---|
 | Protocol | RDP | VNC + Apple extensions | NX | WebRTC | own | own |
+| Video codec | H.264 hardware (kRDPclient); RemoteFX / bitmaps (mstsc); sound Opus / PCM | VNC encodings (Raw/ZRLE/Tight…); HEVC in high-performance mode (Mac to Mac, Apple Silicon) | H.264, VP8 | VP8 / VP9 (WebRTC) | VP8 / VP9 / AV1, optional hardware H.264 / H.265 | H.264, H.265 |
 | Windows' built-in mstsc connects | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Account / cloud service needed | no | no | no (LAN) | Google account | no (self-hosted relay possible) | yes |
 | Hardware video to a Windows client | ✅ H.264 (kRDPclient) | ❌ | ✅ | — | ✅ | ✅ |
@@ -148,6 +149,7 @@ macRDP 是一个免费的 Mac 用 RDP 服务端：从别的电脑连上来，看
 | | macRDP | Apple 屏幕共享 | NoMachine | Chrome 远程桌面 | RustDesk | Parsec |
 |---|---|---|---|---|---|---|
 | 协议 | RDP | VNC + Apple 扩展 | NX | WebRTC | 自有 | 自有 |
+| 视频编码 | H.264 硬编（kRDPclient）；RemoteFX / 位图（mstsc）；声音 Opus / PCM | VNC 编码（Raw/ZRLE/Tight…）；高性能模式 HEVC（两端都是 Apple Silicon Mac） | H.264、VP8 | VP8 / VP9（WebRTC） | VP8 / VP9 / AV1，可选硬件 H.264 / H.265 | H.264、H.265 |
 | Windows 自带 mstsc 能直连 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 要账号/云服务 | 不要 | 不要 | 不要（局域网） | 要 Google 账号 | 不要（可自建中继） | 要 |
 | 给 Windows 客户端的硬件视频 | ✅ H.264（kRDPclient） | ❌ | ✅ | — | ✅ | ✅ |
