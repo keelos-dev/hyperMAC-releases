@@ -29,8 +29,9 @@ later). Intel Macs are not supported.
 ### Which client
 
 **kRDPclient is the recommended client**: https://github.com/keelos-dev/kRDPclient-releases
-(Windows). In kRDPclient choose "Add keelOS host", enter the Mac's address and a token from the
-macRDP app. It gets the picture as hardware-encoded H.264, plus sound and the clipboard.
+(Windows). In kRDPclient choose "Add keelOS host", enter the Mac's address and the macRDP
+password (kRDPclient trades it for a token and does not keep the password), or a token made in
+the macRDP app. It gets the picture as hardware-encoded H.264, plus sound and the clipboard.
 
 mstsc (Remote Desktop Connection) and other standard RDP clients can connect too
 (`mac-address:3389`, the user name and password you set), **but they have no H.264 channel**:
@@ -95,7 +96,8 @@ macRDP 是一个免费的 Mac 用 RDP 服务端：从别的电脑连上来，看
 ### 用什么客户端
 
 **推荐 kRDPclient**：https://github.com/keelos-dev/kRDPclient-releases （Windows）。
-在 kRDPclient 里「添加 keelOS 主机」，填 Mac 的地址和 macRDP app 生成的 token。画面走硬件
+在 kRDPclient 里「添加 keelOS 主机」，填 Mac 的地址和 macRDP 密码（kRDPclient 拿它换一个
+token，不保存密码），也可以填 macRDP app 里生成的 token。画面走硬件
 编码的 H.264，声音、剪贴板也都有。
 
 mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`，用你设的用户名和密码），
