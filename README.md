@@ -8,8 +8,43 @@ macRDP is a free RDP server for your Mac's own desktop: connect from another com
 see and control the desktop that is logged in on the Mac, with its sound and clipboard. It is
 free to use; the source is not published.
 
-**Requirements**: a Mac with Apple Silicon. Tested on macOS 26 only (it asks for macOS 13 or
-later). Intel Macs are not supported.
+**Requirements**: a Mac with Apple Silicon. Tested on macOS 26 and 27.2 (it asks for macOS 13 or
+later; 13–15 not tested). Intel Macs are not supported.
+
+### Features by macOS version
+
+✅ tested on a real Mac · ☑️ should work, not yet tested on this version · — not tested
+
+| Feature | 13–15 | 26 | 27.2 |
+|---|:-:|:-:|:-:|
+| kRDPclient: login, H.264 hardware video | — | ✅ | ✅ |
+| mstsc / standard RDP clients (RemoteFX) | — | ✅ | ☑️ |
+| Keyboard and mouse (input methods work) | — | ✅ | ✅ |
+| Sound (Opus to kRDPclient, PCM to mstsc) | — | ✅ | ☑️ |
+| Clipboard: text | — | ✅ | ☑️ |
+| Clipboard: pictures | — | ✅ | ✅ |
+| Found by kRDPclient's "Discover keelOS" | — | ✅ | ☑️ |
+| Runs in the background, starts at login | — | ✅ | ✅ |
+| Permissions kept across a macOS upgrade | — | — | ✅ (26 → 27.2) |
+| App, first-run setup, Check for Updates | — | ✅ | ☑️ |
+
+### Compared with other remote desktops for the Mac
+
+From each product's public description (2026-11); not all of them tested side by side.
+
+| | macRDP | Apple Screen Sharing | NoMachine | Chrome Remote Desktop | RustDesk | Parsec |
+|---|---|---|---|---|---|---|
+| Protocol | RDP | VNC + Apple extensions | NX | WebRTC | own | own |
+| Windows' built-in mstsc connects | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Account / cloud service needed | no | no | no (LAN) | Google account | no (self-hosted relay possible) | yes |
+| Hardware video to a Windows client | ✅ H.264 (kRDPclient) | ❌ | ✅ | — | ✅ | ✅ |
+| Sound | ✅ | high-performance mode only (Mac clients) | ✅ | ✅ | ✅ | ✅ |
+| File transfer | ❌ (planned) | ✅ (Mac clients) | ✅ | ❌ | ✅ | ❌ |
+| Works at the login window | ❌ | ✅ | ✅ | ✅ | ✅ | — |
+| Price | free | built in | free for personal use | free | open source | free for personal use |
+
+Pick macRDP when the other side is Windows and you want plain RDP (mstsc with nothing to install,
+or kRDPclient for hardware H.264), with no cloud account in between.
 
 ### Install
 
@@ -86,7 +121,42 @@ other open-source Rust crates. Their notices ship with every copy: `THIRD_PARTY.
 macRDP 是一个免费的 Mac 用 RDP 服务端：从别的电脑连上来，看到、操作的就是这台 Mac 上当前登录
 的那个桌面，带声音和剪贴板。免费使用，不开源。
 
-**系统要求**：Apple Silicon 的 Mac。只在 macOS 26 上测过（最低要求 macOS 13）。不支持 Intel Mac。
+**系统要求**：Apple Silicon 的 Mac。在 macOS 26 和 27.2 上测过（最低要求 macOS 13，13–15 没测）。不支持 Intel Mac。
+
+### 功能 × macOS 版本
+
+✅ 真机实测 · ☑️ 应该能用，这个版本还没测 · — 没测
+
+| 功能 | 13–15 | 26 | 27.2 |
+|---|:-:|:-:|:-:|
+| kRDPclient：登录、H.264 硬件画面 | — | ✅ | ✅ |
+| mstsc 等标准 RDP 客户端（RemoteFX） | — | ✅ | ☑️ |
+| 键鼠（输入法可用） | — | ✅ | ✅ |
+| 声音（kRDPclient 用 Opus，mstsc 用 PCM） | — | ✅ | ☑️ |
+| 剪贴板：文字 | — | ✅ | ☑️ |
+| 剪贴板：图片 | — | ✅ | ✅ |
+| kRDPclient「Discover keelOS」自动发现 | — | ✅ | ☑️ |
+| 后台运行、登录自启 | — | ✅ | ✅ |
+| macOS 升级后授权不丢 | — | — | ✅（26 → 27.2） |
+| app、首次设置、检查更新 | — | ✅ | ☑️ |
+
+### 和其他 Mac 远程桌面比较
+
+按各家公开说明整理（2026-11），没有全部并排实测。
+
+| | macRDP | Apple 屏幕共享 | NoMachine | Chrome 远程桌面 | RustDesk | Parsec |
+|---|---|---|---|---|---|---|
+| 协议 | RDP | VNC + Apple 扩展 | NX | WebRTC | 自有 | 自有 |
+| Windows 自带 mstsc 能直连 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 要账号/云服务 | 不要 | 不要 | 不要（局域网） | 要 Google 账号 | 不要（可自建中继） | 要 |
+| 给 Windows 客户端的硬件视频 | ✅ H.264（kRDPclient） | ❌ | ✅ | — | ✅ | ✅ |
+| 声音 | ✅ | 只有高性能模式（Mac 客户端） | ✅ | ✅ | ✅ | ✅ |
+| 文件传输 | ❌（计划中） | ✅（Mac 客户端） | ✅ | ❌ | ✅ | ❌ |
+| 停在登录窗口时能连 | ❌ | ✅ | ✅ | ✅ | ✅ | — |
+| 价格 | 免费 | 系统自带 | 个人免费 | 免费 | 开源 | 个人免费 |
+
+适合的场景：对面是 Windows，想用标准 RDP（mstsc 什么都不用装，或者 kRDPclient 走 H.264 硬件编解码），
+中间不经过任何云账号。
 
 ### 安装
 
