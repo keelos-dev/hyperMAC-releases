@@ -59,8 +59,12 @@ kRDPclient before judging macRDP.
 Open macRDP and click "Check for Updates…" (under About). If there is a newer version it shows
 what changed; "Update" downloads it, checks that it is signed by macRDP's developer and notarized
 by Apple, replaces the app and restarts the service (a session in progress drops for a few
-seconds). The permissions carry over. You can also download the dmg from Releases and drag it
-over the old app, then open it once.
+seconds). The permissions carry over.
+
+By hand: the background service runs from inside macRDP.app, so Finder refuses to replace it
+while it runs ("macRDP is in use"). First turn off "Run at login" in macRDP and quit it (or run
+`launchctl bootout gui/$(id -u)/dev.keelos.macrdp`), then drag the new macRDP over the old one and
+open it.
 
 ### Uninstall
 
@@ -125,7 +129,11 @@ mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`
 
 打开 macRDP，点「关于」里的「检查更新…」。有新版本时会列出改了什么；点「更新」会下载新版本、
 核对它是 macRDP 开发者签名并经苹果公证的，替换 app 并重启服务（正在连着的会话会断开几秒），授权
-不用重新给。也可以到 Releases 下载 dmg，拖进「应用程序」覆盖旧的，再打开一次。
+不用重新给。
+
+手动覆盖：后台服务是从 macRDP.app 里面运行的，服务开着时 Finder 会拒绝覆盖（「macRDP 正在使用」）。
+先在 macRDP 里关掉「登录时自动运行」并退出（或者在终端跑
+`launchctl bootout gui/$(id -u)/dev.keelos.macrdp`），再把新的 macRDP 拖进去覆盖，然后打开它。
 
 ### 卸载
 
