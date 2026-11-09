@@ -38,6 +38,7 @@ From each product's public description (2026-11); not all of them tested side by
 | Windows' built-in mstsc connects | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Account / cloud service needed | no | no | no (LAN) | Google account | no (self-hosted relay possible) | yes |
 | Hardware video to a Windows client | ✅ H.264 (kRDPclient) | ❌ | ✅ | — | ✅ | ✅ |
+| Smoothness (Windows client) | smooth: 1080p 30 fps (60 on a LAN), measured 7.6 ms decode, 6–10 Mbps, ~6 % Mac CPU | choppy (tested with TigerVNC) | smooth | fair | fairly smooth | very smooth (game-grade latency) |
 | Sound | ✅ | high-performance mode only (Mac clients) | ✅ | ✅ | ✅ | ✅ |
 | File transfer | ❌ (planned) | ✅ (Mac clients) | ✅ | ❌ | ✅ | ❌ |
 | Works at the login window | ❌ | ✅ | ✅ | ✅ | ✅ | — |
@@ -150,6 +151,7 @@ macRDP 是一个免费的 Mac 用 RDP 服务端：从别的电脑连上来，看
 | Windows 自带 mstsc 能直连 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 要账号/云服务 | 不要 | 不要 | 不要（局域网） | 要 Google 账号 | 不要（可自建中继） | 要 |
 | 给 Windows 客户端的硬件视频 | ✅ H.264（kRDPclient） | ❌ | ✅ | — | ✅ | ✅ |
+| 流畅度（Windows 客户端） | 流畅：1080p 30 fps（局域网可 60），实测解码 7.6 ms、6–10 Mbps、Mac CPU 约 6% | 卡（TigerVNC 实测） | 流畅 | 一般 | 较流畅 | 很流畅（游戏级延迟） |
 | 声音 | ✅ | 只有高性能模式（Mac 客户端） | ✅ | ✅ | ✅ | ✅ |
 | 文件传输 | ❌（计划中） | ✅（Mac 客户端） | ✅ | ❌ | ✅ | ❌ |
 | 停在登录窗口时能连 | ❌ | ✅ | ✅ | ✅ | ✅ | — |
