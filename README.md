@@ -52,14 +52,15 @@ kRDPclient before judging macRDP.
   it keeps the password's NT hash in a file only your account can read. After changing the Mac
   password, the old one stops working at once; mstsc needs one login with the new one from
   kRDPclient (or open macRDP and type it), kRDPclient works right away.
-- No automatic updates: download the new dmg from Releases, drag it over the old app, open it
-  once.
+- Updates are not checked by themselves: use "Check for Updates…" in the app.
 
 ### Update
 
-Drag the new macRDP over the one in Applications, then open it: it restarts the background
-service with the new version. If Screen Recording or Accessibility stops working afterwards,
-switch macRDP off and on again in that list.
+Open macRDP and click "Check for Updates…" (under About). If there is a newer version it shows
+what changed; "Update" downloads it, checks that it is signed by macRDP's developer and notarized
+by Apple, replaces the app and restarts the service (a session in progress drops for a few
+seconds). The permissions carry over. You can also download the dmg from Releases and drag it
+over the old app, then open it once.
 
 ### Uninstall
 
@@ -118,12 +119,13 @@ mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`
 - 登录用的就是你的 Mac 账号，知道 Mac 密码的人就能连：密码要设好，3389/443 端口别暴露到公网。
   macRDP 不保存密码本身，只为 mstsc 存一个密码的 NT 哈希（只有你的账号能读）。改了 Mac 密码后旧密码
   立刻失效；kRDPclient 马上能用新密码，mstsc 要先用新密码从 kRDPclient 登录一次（或者打开 macRDP 输一次）。
-- 不自动更新：到 Releases 下载新的 dmg，拖进去覆盖旧的，再打开一次即可。
+- 不会自己检查更新：在 app 里点「检查更新…」。
 
 ### 更新
 
-把新的 macRDP 拖进「应用程序」覆盖旧的，再打开它：后台服务会换成新版本。之后如果屏幕录制或
-辅助功能不起作用，在那个列表里把 macRDP 的开关关掉再打开。
+打开 macRDP，点「关于」里的「检查更新…」。有新版本时会列出改了什么；点「更新」会下载新版本、
+核对它是 macRDP 开发者签名并经苹果公证的，替换 app 并重启服务（正在连着的会话会断开几秒），授权
+不用重新给。也可以到 Releases 下载 dmg，拖进「应用程序」覆盖旧的，再打开一次。
 
 ### 卸载
 
