@@ -45,7 +45,7 @@ kRDPclient before judging macRDP.
   login) nobody can connect. Turn on automatic login in System Settings → Users & Groups.
 - The Mac needs a display, or a dummy plug (HDMI headless adapter); with nothing attached macOS
   has no screen to capture.
-- Clipboard: text only (no files or images).
+- Clipboard: text and pictures (screenshots, copied images), no files yet.
 - The mouse pointer is part of the picture; there is no client-side pointer yet.
 - The login is your Mac account, so anyone who knows your Mac password can connect: use a good
   one, and keep port 3389/443 inside your network. macRDP does not store the password; for mstsc
@@ -113,7 +113,7 @@ mstsc（远程桌面连接）等标准 RDP 客户端也能连（`Mac地址:3389`
 - Mac 上要有用户登录着：停在登录窗口（比如重启后没开自动登录）时连不上。建议在「系统设置 →
   用户与群组」里打开自动登录。
 - Mac 要接着显示器，或者插一个假负载（HDMI 欺骗器）；什么都不接时 macOS 没有屏幕可抓。
-- 剪贴板只有文本（不支持文件、图片）。
+- 剪贴板支持文字和图片（截图、复制的图片），文件还不支持。
 - 鼠标指针是画在画面里的，还没有客户端本地光标。
 - 登录用的就是你的 Mac 账号，知道 Mac 密码的人就能连：密码要设好，3389/443 端口别暴露到公网。
   macRDP 不保存密码本身，只为 mstsc 存一个密码的 NT 哈希（只有你的账号能读）。改了 Mac 密码后旧密码
